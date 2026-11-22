@@ -77,4 +77,4 @@ default:return f(5);
 }
 }
 const I=process.env.MAKEFUN_INPUT_DIR??"/input",O=process.env.MAKEFUN_OUTPUT_DIR??"/output";
-for(const id of d(I).sort()){const g=run(new Uint8Array(r(j(I,id,"program.bin"))),new Uint8Array(r(j(I,id,"input.bin"))));m(j(O,id),{recursive:!0});w(j(O,id,"stdout.bin"),g.out);w(j(O,id,"exit.txt"),g.code+"\n")}
+for(const id of d(I).sort()){let g;try{g=run(new Uint8Array(r(j(I,id,"program.bin"))),new Uint8Array(r(j(I,id,"input.bin"))))}catch{g={out:new Uint8Array(0),code:9}}m(j(O,id),{recursive:!0});w(j(O,id,"stdout.bin"),g.out);w(j(O,id,"exit.txt"),g.code+"\n")}
